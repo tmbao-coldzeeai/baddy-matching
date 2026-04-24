@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package badminton;
+
+// Player profile message format
+message Player {
+  string id = 1;
+  string name = 2;
+  string phone = 3;
+  string level = 4; // A -> E
+  string location = 5;
+  repeated string preferred_time_frames = 6;
+  int64 created_at = 7;
+  int64 updated_at = 8;
+}
+
+// Player search request
+message PlayerSearchRequest {
+  string location = 1;
+  string level = 2;
+  repeated string preferred_time_frames = 3;
+}
+
+// Player search response
+message PlayerSearchResponse {
+  repeated Player players = 1;
+}
+
+// Match request
+message MatchRequest {
+  string player_id = 1;
+  string target_player_id = 2;
+}
+
+// Match response
+message MatchResponse {
+  bool matched = 1;
+  string message = 2;
+}

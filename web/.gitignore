@@ -1,0 +1,28 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Optional eslint cache
+/.eslintcache
+
+# Output of the build process
+/.next
+/out
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.production
+
+# Testing
+/coverage
+.nyc_output
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/

@@ -1,0 +1,27 @@
+{
+  "name": "baddy-matching-web",
+  "version": "1.0.0",
+  "description": "Frontend for Baddy-Matching badminton player matching platform",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "generate-proto": "protoc --js_out=import_style=commonjs,binary:./src/proto ./../proto/player.proto"
+  },
+  "dependencies": {
+    "next": "14.0.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "@protobufjs/fetch": "^1.1.0",
+    "@protobufjs/utf8": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.5",
+    "@types/react": "18.2.48",
+    "eslint": "8.55.0",
+    "eslint-config-next": "14.0.4",
+    "typescript": "5.3.3",
+    "protobufjs": "^7.2.5"
+  }
+}

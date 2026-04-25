@@ -1,112 +1,41 @@
-# Baddy-Matching - Badminton Player Matching Platform
+# Baddy Matching Service
 
-A Tinder-like platform for badminton players to find match partners based on skill level, location, and preferred time frames.
+## Running Locally
 
-## Project Structure
+To run the baddy-matching service locally:
 
-- `/web` - Next.js frontend application
-- `/server` - Node.js backend with MongoDB
-- `/proto` - Protocol buffers for message formatting
-- `/docker` - Docker configuration files
+1. **Prerequisites**:
+   - Docker and Docker Compose installed
+   - User added to docker group (`sudo usermod -aG docker $USER`)
 
-## Features
+2. **Start the service**:
+   ```bash
+   cd /home/bao/.openclaw/workspace/baddy-matching
+   docker compose up -d
+   ```
 
-- Player profiles with Name, Level (A-E), Location, Preferred Time Frames
-- Tinder-like matching interface
-- MongoDB storage for player data
-- Containerized deployment with Podman
-
-## Getting Started
-
-1. Clone the repository
-2. Install dependencies in both web and server folders
-3. Configure MongoDB connection
-4. Run with Podman containers
-
-## Project Components
-
-### Server (Backend)
-- Built with Node.js and Express
-- MongoDB database integration using Mongoose
-- RESTful API endpoints for player management
-- Validation and error handling middleware
-
-### Web (Frontend)
-- Built with Next.js and TypeScript
-- Responsive design using Tailwind CSS
-- Tinder-like UI for browsing players
-- Integration with the backend API
-
-### Protocol Buffers (Optional)
-- Defined in `/proto/player.proto`
-- Can be used for consistent data formats between frontend and backend
-
-### Containerization
-- Dockerfiles for both web and server components
-- docker-compose.yml for orchestrating containers
-
-## API Endpoints
-
-### Players
-
-- `GET /api/players` - Get all players
-- `GET /api/players/:id` - Get a specific player by ID
-- `POST /api/players` - Create a new player
-- `PUT /api/players/:id` - Update an existing player
-- `DELETE /api/players/:id` - Delete a player
-- `POST /api/players/search` - Search players by criteria
-
-### Health Check
-
-- `GET /health` - Server health status
-
-## Technology Stack
-
-### Backend
-- Node.js with Express
-- MongoDB with Mongoose ODM
-- Protocol Buffers (optional)
-
-### Frontend
-- Next.js 14
-- TypeScript
-- Tailwind CSS
-
-### Deployment
-- Podman containers
-- Docker Compose orchestration
+3. **Service endpoints**:
+   - Web UI: http://localhost:3000
+   - API Server: http://localhost:3001
+   - MongoDB: mongodb://localhost:27017
 
 ## Development Setup
 
-1. Clone the repository
-2. Navigate to the project directory:
-   ```
-   cd baddy-matching
-   ```
+For development, you can also run individual components:
 
-3. Install dependencies for both web and server:
-   ```
-   cd server && npm install
-   cd ../web && npm install
-   ```
+```bash
+# Start MongoDB
+docker run -d --name baddy-mongodb -p 27017:27017 mongo:latest
 
-4. Start the containers:
-   ```
-   podman-compose up
-   ```
+# Start server (in development mode)
+cd server && npm run dev
 
-5. Access the application at:
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:3001
+# Start web frontend (in development mode)
+cd web && npm run dev
+```
 
-## Production Deployment
+## Testing
 
-For production deployment, use the provided Docker configuration files and container orchestration.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License.
+Once services are running, you can test:
+1. Access http://localhost:3000 for the web interface
+2. Test API endpoints at http://localhost:3001

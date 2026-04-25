@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
+    "simple": "node simple-server.js",
     "test": "jest",
     "generate-proto": "protoc --js_out=import_style=commonjs,binary:./src/proto ./proto/player.proto"
   },
